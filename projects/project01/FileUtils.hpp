@@ -31,12 +31,14 @@ std::string timestampToString(timestamp time);
 // YOUR CODE BELOW HERE
 // DO NOT MODIFY ABOVE ----
 
-};
-
 /*
 Hyuncheol Lee
 2025/09/09
 
-this file 
+this header file declares everything needed for FileUtils.cpp
 */
 
+    std::string findFileExtension(const std::string& fileName);
+    bool hasWhitespaces(const std::string& fileName);
+    
+};

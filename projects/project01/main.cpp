@@ -1,4 +1,5 @@
 #include <iostream>
+#include "File.hpp"
 #include "FileUtils.hpp"
 
 int main() {
@@ -51,6 +52,35 @@ int main() {
     std::cout << "/f: " << FileUtils::hasWhitespaces(caseF) << std::endl;
     std::cout << "/r: " << FileUtils::hasWhitespaces(caseR) << std::endl;
     std::cout << "/t: " << FileUtils::hasWhitespaces(caseT) << std::endl;
+    std::cout << std::endl;
+
+    // DEFAULT CONSTRUCTOR
+    File testFile("1 and 0.png", true, false);
+    std::cout << "Test File Object Created" << std::endl;
+    std::cout << "test file name: " << testFile.getFileName() << std::endl;
+    std::cout << "test file is readable?: " << testFile.isReadable() << std::endl;
+    std::cout << "test file is writeable?: " << testFile.isWriteable() << std::endl;
+    std::cout << "test file should come out as 1: " << testFile.setFileName("perfect") << std::endl;
+    std::cout << "test file should come out as 0: " << testFile.setFileName("1 of 1") << std::endl;
+    std::cout << "test file should come out as 0: " << testFile.setFileName("") << std::endl; 
+    std::cout << std::endl;
+
+    // THE TEST METHOD PROVIDED
+    std::cout << "THE TEST METHOD PROVIDED" << std::endl;
+    std::cout << testFile.toString() << std::endl;
+    std::cout << std::endl;
+
+    // TESTING SET_FILE_NAME
+    std::cout << "changing file name to IMG_4096.png: " << testFile.setFileName("IMG_4096.png") << std::endl;
+    std::cout << testFile.toString() << std::endl;
+    std::cout << "changing file name to '': " << testFile.setFileName("") << std::endl;
+    std::cout << testFile.toString() << std::endl;
+    std::cout << "changing file name to ' ': " << testFile.setFileName(" ") << std::endl;
+    std::cout << testFile.toString() << std::endl;
+    std::cout << "changing file name to IMG_4096.heic: " << testFile.setFileName("IMG_4096.heic") << std::endl;
+    std::cout << testFile.toString() << std::endl;
+    std::cout << "changing file name to smile.png: " << testFile.setFileName("smile.png") << std::endl;
+    std::cout << testFile.toString() << std::endl;
 
     return 0;
 }

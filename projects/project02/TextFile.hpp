@@ -1,7 +1,16 @@
-#include <string>
-#include <File.hpp>
+/*
+Hyuncheol Lee
+2025/10/05
 
-class TextFile {
+this file deals with the given file's text data
+*/
+
+#pragma once
+
+#include "File.hpp"
+#include <string>
+
+class TextFile : public File {
 private:
     std::string content_;       // A string representing the actual text stored within the file
 
@@ -23,14 +32,14 @@ public:
      *
      * @note You should be initializing the base class explicitly (refer to lecture)
     */
-    TextFile(const std::string& filename, const std::string& content = "", bool readable = true, bool writable = true);     // parametized constructor
-
+    TextFile(const std::string& filename, const std::string& content = "", bool readable = true, bool writable = true);
+    
     // getters
     /**
      * Retrieves the current contents of the text file.
      * @return A string containing the text file's contents.
     */
-    std::string getContent();
+    std::string getContent() const;
 
     // setters
     /**
@@ -44,5 +53,5 @@ public:
      *
      * @note Hint: You will need to modify `File` (ie. the base class) to allow you to actually update the last modified timestamp.
     */
-    void setContent();
+    void setContent(const std::string& newContent);
 };

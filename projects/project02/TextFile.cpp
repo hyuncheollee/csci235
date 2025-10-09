@@ -1,9 +1,13 @@
+/*
+Hyuncheol Lee
+2025/10/05
+
+this file deals with the given file's text data
+*/
+
+#include "File.hpp"
+#include "TextFile.hpp"
 #include <string>
-#include <TextFile.hpp>
-
-TextFile::TextFile() {
-
-}
 
 /**
  * Constructs a new TextFile object.
@@ -21,9 +25,32 @@ TextFile::TextFile() {
  *
  * @note You should be initializing the base class explicitly (refer to lecture)
 */
-TextFile::TextFile(const std::string& filename, const std::string& content, bool& readable, bool& writable) {       // parametized constructor
-    filename_ = filename;
+TextFile::TextFile(const std::string& filename, const std::string& content, bool readable, bool writable) : File(filename, readable, writable) {        // parametized constructor
     content_ = content;
-    readable_ = readable;
-    writable_ = writable;
+}
+
+// getters
+/**
+ * Retrieves the current contents of the text file.
+ * @return A string containing the text file's contents.
+*/
+std::string TextFile::getContent() const {
+    return content_;
+}
+
+// setters
+/**
+ * Updates the content of the text file.
+ *
+ * @param newContent A const reference to a string representing the new file contents.
+ * @post
+ * 1. The content_ member variable is updated to match the provided string.
+ * 2. The last_modified_timestamp_ of the underlying File is updated to the current time
+ * specified by Clock::now.
+ *
+ * @note Hint: You will need to modify `File` (ie. the base class) to allow you to actually update the last modified timestamp.
+*/
+void TextFile::setContent(const std::string& newContent) {
+    content_ = newContent;
+    File::updateLastModified();
 }

@@ -26,14 +26,6 @@ private:
      */
     void appendDefaultExtension();
 
-    /**
-     * @brief Updates the  `last_modified_timestamp_` member to the current
-     * time by calling the `now()` method on the `system_clock_` object.
-     *
-     * @note Do not modify this!
-     */
-    void updateLastModified();
-
 public:
     /**
      * Constructs a new File object.
@@ -125,4 +117,12 @@ public:
      * @see https://builtin.com/articles/dependency-injection (in case you're curious)
      */
     static void setClock(std::shared_ptr<Clock> new_clock);
+
+    /**
+     * @brief Updates the  `last_modified_timestamp_` member to the current
+     * time by calling the `now()` method on the `system_clock_` object.
+     *
+     * @note Do not modify this!
+     */
+    void updateLastModified();
 };

@@ -16,9 +16,10 @@ CLASS_OBJS = \
 	$(BASE_DIR)/File.o \
 	$(BASE_DIR)/FileUtils.o \
 	$(BASE_DIR)/Clock.o \
-	
 	$(BASE_DIR)/Pixel.o \
 	$(BASE_DIR)/TextFile.o \
+	$(BASE_DIR)/ImageFile.o \
+	$(BASE_DIR)/FileLoader.o \
 	# You should add your files as you create and test them
 
 OBJS = $(MAIN_OBJS) $(CLASS_OBJS)

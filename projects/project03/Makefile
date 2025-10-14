@@ -6,6 +6,7 @@ CXX = g++
 CXXFLAGS = \
 	-std=c++17 -g -Wall -O2 \
 	-I $(SUBMISSION_DIR) \
+	-fsanitize=address \
 
 PROG ?= main
 

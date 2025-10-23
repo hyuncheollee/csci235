@@ -222,9 +222,29 @@ void LinkedList<T>::insert(size_t index, const T& value) {
         }
     }
 
+    // if we want to insert at the tail
+    else if (index == size_) {
+        tail_ -> next_ = new_node;          // old tail -> new node
+        tail_ = new_node;                   // update tail -> new node
+    }
+
+    // if we're inserting anywhere else
+    else {
+        // start from beginning of list
+        Node<T>* prev = head_;
+
+        // iterate through the list
+        for (size_t i = 0; i < index - 1; i++) {
+            prev = prev -> next_;
+        }
+
+        // insert new node
+        new_node -> next_ = prev -> next_;
+        prev -> next_ = new_node;
+    }
+
     // dont forget to increase list size
     size_++;
-    return;
 }
 
 /**

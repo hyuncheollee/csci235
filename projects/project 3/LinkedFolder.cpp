@@ -86,14 +86,9 @@ bool LinkedFolder::removeFile(const std::string& filename) {
         return false;      
     }
 
-    // make a new list
-    LinkedList<File> newList;
+    // erase file
+    files_.erase(idx);
 
-    for (size_t i = 0; i < files_.size(); ++i) {
-        if (i != idx) newList.push_back(files_.at(i));
-    }
-    
-    files_ = newList;
     return true;
 }
 

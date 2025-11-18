@@ -2,14 +2,24 @@
 Hyuncheol Lee
 2025/10/31
 
-this file 
+this file is the header file for ImageFilter
 */
 
 #pragma once
 
+#include <string>
+
+class ImageFile;
+
+enum Channel {
+    RED   = 0,
+    GREEN = 1,
+    BLUE  = 2
+};
+
 class ImageFilter {
 private:
-    double strength_;        // A double representing the strength of the Image Filter
+    double strength_;        // strength of the Image Filter
 
 public: 
     /**
@@ -25,6 +35,9 @@ public:
      * 3. Greater than 1, use 1.0
      */
     ImageFilter(double initialStrength = 1.0);
+
+    // virtual destructor
+    virtual ~ImageFilter() = default;
     
     /**
      * Sets the strength of the filter.
@@ -49,7 +62,7 @@ public:
      * (this is one of the few times where we tell you this function is const).
      * @note Pure virtual -- will be implemented later by derived classes
      */
-    apply
+    virtual void apply(ImageFile& image) const = 0;
 
     /**
      * @brief Returns the name of the filter as a string
@@ -57,5 +70,5 @@ public:
      *
      * @note Pure virtual -- will be implemented later by derived classes
      */
-    name
+    virtual std::string name() const = 0;
 }; 

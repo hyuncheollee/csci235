@@ -2,10 +2,12 @@
 Hyuncheol Lee
 2025/10/31
 
-this file 
+this file is the source file for ImageFilter
 */
 
 #include "ImageFilter.hpp"
+
+#include <string>
 
 /**
  * Constructs an ImageFilter with a given initial strength.
@@ -19,15 +21,20 @@ this file
  * 2. Less than 0 use 0.0
  * 3. Greater than 1, use 1.0
  */
-ImageFilter::ImageFilter(double initialStrength = 1.0) {
+ImageFilter::ImageFilter(double initialStrength) {
     // value is smaller than 0.0
     if (initialStrength < 0.0) {
-        initialStrength = 0.0;
+        strength_ = 0.0;
     }
 
     // value is larger than 1.0
     else if (initialStrength > 1.0) {
-        initialStrength = 1.0;
+        strength_ = 1.0;
+    }
+
+    // value is between 0.0 and 1.0
+    else {
+        strength_ = initialStrength;
     }
 }
 
@@ -38,12 +45,12 @@ ImageFilter::ImageFilter(double initialStrength = 1.0) {
  * clamped between 0.0 and 1.0
  */
 void ImageFilter::setStrength(double strength) {
-    // lower than 0.0
+    // value is smaller than 0.0
     if (strength < 0.0) {
         strength_ = 0.0;
     }
 
-    // higher than 1.0
+    // value is larger than 1.0
     else if (strength > 1.0) {
         strength_ = 1.0;
     }
